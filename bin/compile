@@ -31,8 +31,7 @@ function indent() {
 
 topic 'Rewriting libffi.pc'
 mkdir -p $BUILD_DIR/.heroku/vendor/lib/pkg-config
-sed -e "s%/usr%$BUILD_DIR/.apt/usr%" -e "s%Cflags:%Cflags: -I\${includedir}/x86_64-linux-gnu%" < $BUILD_DIR/.apt/usr/lib/pkgconfig/libffi.pc > $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
-#sed -e "s%/usr%$BUILD_DIR/.apt/usr%" -e "s%Cflags:%Cflags: -I\${includedir}%" < $BUILD_DIR/.apt/usr/lib/pkgconfig/libffi.pc > $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
+sed -e "s%/usr%/app/.apt/usr%" -e "s%Cflags:%Cflags: -I\${includedir}/x86_64-linux-gnu%" < $BUILD_DIR/.apt/usr/lib/pkgconfig/libffi.pc > $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
 
 topic 'Env vars'
 env
@@ -42,6 +41,7 @@ topic 'Include dir'
 ls -la $BUILD_DIR/.apt/usr/include
 topic 'Subdir'
 ls -la $BUILD_DIR/.apt/usr/include/x86_64-linux-gnu
+head $BUILD_DIR/.apt/usr/include/x86_64-linux-gnu/ffi.h
 topic 'pkg-config output'
 env PKG_CONFIG_PATH=$BUILD_DIR/.heroku/vendor/lib/pkg-config pkg-config --cflags-only-I libffi
 env PKG_CONFIG_PATH=$BUILD_DIR/.heroku/vendor/lib/pkg-config pkg-config --cflags-only-other libffi
