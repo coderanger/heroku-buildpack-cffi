@@ -39,6 +39,8 @@ topic 'New libffi.pc'
 cat $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
 topic 'Include dir'
 ls $BUILD_DIR/.apt/usr/include
+topic 'Subdir'
+ls $BUILD_DIR/.apt/usr/include/x86_64-linux-gnu
 topic 'pkg-config output'
 env PKG_CONFIG_PATH=$BUILD_DIR/.heroku/vendor/lib/pkg-config pkg-config --cflags-only-I libffi
 env PKG_CONFIG_PATH=$BUILD_DIR/.heroku/vendor/lib/pkg-config pkg-config --cflags-only-other libffi
