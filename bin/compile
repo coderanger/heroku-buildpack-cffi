@@ -31,7 +31,7 @@ function indent() {
 
 topic 'Rewriting libffi.pc'
 mkdir -p $BUILD_DIR/.heroku/vendor/lib/pkg-config
-sed -e "s%/usr%$BUILD_DIR/.apt/usr%" -e "s%Cflags:%Cflags: -I${includedir}/x86_64-linux-gnu%" < $BUILD_DIR/.apt/usr/lib/pkgconfig/libffi.pc > $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
+sed -e "s%/usr%$BUILD_DIR/.apt/usr%" -e "s%Cflags:%Cflags: -I\${includedir}/x86_64-linux-gnu%" < $BUILD_DIR/.apt/usr/lib/pkgconfig/libffi.pc > $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
 
 topic 'New libffi.pc'
 cat $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
