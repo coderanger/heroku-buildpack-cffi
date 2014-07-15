@@ -29,6 +29,11 @@ function indent() {
   esac
 }
 
-topic 'Rewrting libffi.pc'
+topic 'Rewriting libffi.pc'
 mkdir -p $BUILD_DIR/.heroku/vendor/lib/pkg-config
 sed "s%/usr%$BUILD_DIR/.apt/usr%" < $BUILD_DIR/.apt/usr/lib/pkgconfig/libffi.pc > $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
+
+topic 'New libffi.pc'
+cat $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
+topic 'Include dir'
+ls $BUILD_DIR/.apt/usr/include
