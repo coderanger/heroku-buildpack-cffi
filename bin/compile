@@ -5,7 +5,7 @@
 set -e
 
 # debug
-# set -x
+set -x
 
 # parse and derive params
 BUILD_DIR=$1
@@ -38,4 +38,5 @@ cat $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
 topic 'Include dir'
 ls $BUILD_DIR/.apt/usr/include
 topic 'pkg-config output'
-env PKG_CONFIG_PATH=$BUILD_DIR/.heroku/vendor/lib/pkg-config pkg-config libffi
+env PKG_CONFIG_PATH=$BUILD_DIR/.heroku/vendor/lib/pkg-config pkg-config --cflags-only-I libffi
+env PKG_CONFIG_PATH=$BUILD_DIR/.heroku/vendor/lib/pkg-config pkg-config --cflags-only-other libffi
