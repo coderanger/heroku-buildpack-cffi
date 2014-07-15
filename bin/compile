@@ -29,6 +29,5 @@ function indent() {
   esac
 }
 
-topic "The contents of PKG_CONFIG_PATH are $PKG_CONFIG_PATH"
-topic "BUILD_DIR=$BUILD_DIR"
+topic "env is $(env)"
 topic "pkgconfig is $(ls $BUILD_DIR/.apt/usr/lib/pkgconfig)"
