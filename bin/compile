@@ -29,5 +29,6 @@ function indent() {
   esac
 }
 
-topic "env is $(env)"
-topic "pkgconfig is $(ls $BUILD_DIR/.apt/usr/lib/pkgconfig)"
+topic 'Rewrting libffi.pc'
+mkdir -p $BUILD_DIR/.heroku/vendor/lib/pkg-config
+sed "s%/usr%$BUILD_DIR/.apt/usr%" < $BUILD_DIR/.apt/usr/lib/pkgconfig/libffi.pc > $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
