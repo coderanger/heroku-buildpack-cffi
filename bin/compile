@@ -4,6 +4,8 @@
 # fail fast
 set -e
 
+BUILD_DIR=$1
+
 echo '-----> Rewriting libffi.pc'
 mkdir -p $BUILD_DIR/.heroku/vendor/lib/pkg-config
 sed -e "s%/usr%/app/.apt/usr%" -e "s%Cflags:%Cflags: -I\${includedir}/x86_64-linux-gnu%" -e "s%Libs:%Libs: -L\${libdir}%" < $BUILD_DIR/.apt/usr/lib/pkgconfig/libffi.pc > $BUILD_DIR/.heroku/vendor/lib/pkg-config/libffi.pc
