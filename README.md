@@ -1,6 +1,8 @@
 heroku-buildpack-cffi
 =====================
 
+**Support for this is now included in the main Python buildpack. This is only up for legacy reasons. Please don't use it.**
+
 A helper buildpack to get CFFI and projects that use it working on Heroku.
 
 Usage
